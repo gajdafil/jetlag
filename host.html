@@ -1,0 +1,7 @@
+<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hostitel – Jet Lag ve Štatlu</title><link rel="stylesheet" href="css/styles.css"></head>
+<body class="wide"><header class="top"><b>Hostitel · <span id="gname">Jet Lag ve Štatlu</span></b></header>
+<main><section id="gate" class="card"><form id="gf"><label for="gp">Heslo hostitele</label><input id="gp" type="password" required><button class="btn">Vstoupit</button></form></section>
+<section id="panel" hidden><div class="card bar"><span id="cnt"></span><span><button id="act">Deaktivovat hru</button> <button id="newrun">Nová hra</button></span></div><div id="board"></div></section>
+<p id="msg" class="bad" role="status"></p></main>
+<dialog><form method="dialog"><p id="q"></p><input id="qi" hidden><div class="bar"><button value="cancel">Zrušit</button><button value="ok" class="btn pri">Potvrdit</button></div></form></dialog>
+<script type="module" src="js/host.js"></script></body></html>
