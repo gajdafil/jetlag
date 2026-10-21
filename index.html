@@ -1,5 +1,15 @@
-<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jet Lag ve Štatlu</title><link rel="stylesheet" href="css/styles.css"></head>
-<body><header class="top"><b>Jet Lag ve Štatlu</b><span aria-hidden="true">★ ★ ★</span></header>
-<nav class="tabs" aria-label="Navigace"><button data-tab="game" class="on">Hra</button><button data-tab="board">Tabulka</button></nav>
-<main><section id="game"><div id="view"></div></section><section id="board" hidden></section><p id="msg" role="status" aria-live="polite"></p></main>
-<script type="module" src="js/app.js"></script></body></html>
+<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Jet Lag ve Štatlu</title><link rel="stylesheet" href="assets/styles.css"></head>
+<body><main><h1>★ Jet Lag ve Štatlu</h1>
+<div id="gate" class="card"><p>Zadejte heslo hry a název týmu.</p><input id="pw" type="password" placeholder="Heslo hry" autocomplete="off"><input id="tn" maxlength="40" placeholder="Název týmu"><button id="join">Pokračovat</button><p id="err" class="bad" role="alert"></p></div>
+<div id="app" class="hide"><nav role="tablist"><button role="tab" id="tg" aria-selected="true">Hra</button><button role="tab" id="tt" aria-selected="false">Tabulka</button></nav>
+<section id="game"><div class="card"><strong id="tname"></strong> · <span id="clock"></span> · <span id="prog"></span>
+<button id="start" class="hide">Započněmež</button><p id="clue"></p>
+<div id="act" class="hide"><button id="gps">Ověřit polohu</button><p id="gmsg" role="status"></p>
+<div id="q" class="hide"><p id="qt"></p><input id="ans" autocomplete="off"><button id="send">Ověřit odpověď</button><p id="amsg" role="status"></p></div>
+<hr><button id="help">Potřebuji pomoc</button> <button id="cancel" class="hide">Zrušit žádost</button>
+<p class="stat" id="hs">Přijetí pomoci může znamenat penalizaci (výchozí 3 min), započte se až při první odpovědi Otce Fury.</p>
+<div id="chat" aria-live="polite"></div><div id="say" class="hide"><input id="mt" maxlength="500" placeholder="Zpráva pro Otce Furu"><button id="ms">Odeslat</button></div></div>
+<div id="fin" class="hide"><h2>🏁 Cíl!</h2><p>Váš výsledný čas je v záložce Tabulka. Vyhodnocení proběhne v Nálevně.</p></div></div></section>
+<section id="board" class="hide"></section></div></main>
+<script src="assets/config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script type="module" src="assets/app.js"></script></body></html>
