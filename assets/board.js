@@ -24,6 +24,7 @@ const b=document.createElement('span');b.className='bub';b.textContent=r.name;b.
 d.append(h,ax);return d};
 const sec=(t,a,num)=>{if(!a.length)return;const h=document.createElement('h3');h.textContent=t;root.append(h);a.forEach((r,i)=>root.append(lane(r,num?i+1:0)))};
 const note=document.createElement('p');note.className='stat';note.textContent='Start → 1 → … → Cíl. Poloha bubliny = potvrzený postup, ne GPS.';root.append(note);
+if(!rows.length){const e=document.createElement('p');e.textContent='Zatím tu nejsou žádné týmy.';root.append(e)}
 sec('V cíli',g.fin,1);sec('V závodě',g.run,1);sec('Nezačali',g.new,0);sec('Nedokončili',g.bad,0);
 const tick=()=>root.querySelectorAll('.t').forEach(e=>{if(!e.dataset.s)return e.textContent='—';const sec=((e.dataset.f?D(e.dataset.f):Date.now()+skew)-D(e.dataset.s))/1e3;e.textContent='čas '+fmt(sec)+(+e.dataset.p?` → výsledný ${fmt(sec+ +e.dataset.p)}`:'')});
 tick();root._t=setInterval(tick,1000)}
