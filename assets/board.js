@@ -27,5 +27,5 @@ const note=document.createElement('p');note.className='stat';note.textContent='S
 sec('V cíli',g.fin,1);sec('V závodě',g.run,1);sec('Nezačali',g.new,0);sec('Nedokončili',g.bad,0);
 const tick=()=>root.querySelectorAll('.t').forEach(e=>{if(!e.dataset.s)return e.textContent='—';const sec=((e.dataset.f?D(e.dataset.f):Date.now()+skew)-D(e.dataset.s))/1e3;e.textContent='čas '+fmt(sec)+(+e.dataset.p?` → výsledný ${fmt(sec+ +e.dataset.p)}`:'')});
 tick();root._t=setInterval(tick,1000)}
-export async function liveBoard(sb,root,opts){const load=async()=>{const{data,error}=await sb.from('board').select('*');if(error){root.dataset.stale=1;return}delete root.dataset.stale;renderBoard(root,data,opts)};
+export async function liveBoard(sb,root,opts){const load=async()=>{const{data,error}=await sb.from('board').select('*');if(error){root.dataset.stale=1;const p=document.createElement('p');p.className='bad';p.textContent='Tabulku se nepodařilo načíst: '+error.message;root.replaceChildren(p);return}delete root.dataset.stale;renderBoard(root,data,opts)};
 await load();sb.channel('ping'+Math.random()).on('postgres_changes',{event:'*',schema:'public',table:'ping'},load).subscribe(s=>{if(s==='SUBSCRIBED')load()});setInterval(load,20000);return load}
